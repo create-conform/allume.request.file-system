@@ -19,7 +19,9 @@
         var self = this;
 
         this.process = function(selector) {
-            if (selector.uri.scheme != "file") {
+            if (selector.uri.scheme != "file" || 
+                selector.uri.path.indexOf("/") == selector.uri.path.length -1 ||
+                selector.uri.path.indexOf(".pkx") == selector.uri.path.length - 4) {
                 return;
             }
 
