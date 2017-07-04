@@ -1,0 +1,11 @@
+{
+  "name": "allume.request.file-system",
+  "version": "0.1.0",
+  "title": "Allume Request File System Library",
+  "description": "Allume request module for fetching releases from file system locations.",
+  "main": "file-system.js",
+  "pkxDependencies": [
+    "cc.version.0.1",
+    "cc.string.0.1"
+  ]
+}
