@@ -26,7 +26,12 @@
             }
 
             return new Promise(function (resolve, reject) {
-                selector.uri = selector.uri.toString() + "/" + URI_PATH_FILESYSTEM_TEMPLATE;
+                var path = selector.uri.toString();
+                var lastIdx = path.lastIndexOf("/");
+                if (lastIdx >= 0) {
+                    path = path.substr(0, lastIdx);
+                }
+                selector.uri = path + "/" + URI_PATH_FILESYSTEM_TEMPLATE;
                 resolve();
             });
         };
