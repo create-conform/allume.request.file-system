@@ -20,13 +20,13 @@
 
         this.process = function(selector) {
             if (selector.uri.scheme != "file" || 
-                selector.uri.path.indexOf("/") == selector.uri.path.length -1 ||
-                selector.uri.path.indexOf(".pkx") == selector.uri.path.length - 4) {
+                selector.uri.path.lastIndexOf("/") == selector.uri.path.length -1 ||
+                selector.uri.path.lastIndexOf(".pkx") == selector.uri.path.length - 4) {
                 return;
             }
 
             return new Promise(function (resolve, reject) {
-                selector.uri = selector.repository + URI_PATH_FILESYSTEM_TEMPLATE;
+                selector.uri = selector.uri.toString() + "/" + URI_PATH_FILESYSTEM_TEMPLATE;
                 resolve();
             });
         };
